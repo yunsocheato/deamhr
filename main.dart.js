@@ -126561,7 +126561,7 @@ m=$.c
 m=(m==null?$.c=B.n:m).p(0,k,s).ax.gj(0)===15?B.a5:B.q
 l=$.c
 n=A.mu(!1,k,!0,A.x(j,k,k,k,k,A.a9(k,k,m,k,k,k,k,k,k,k,k,n,k,k,(l==null?$.c=B.n:l).p(0,k,s).ax.gj(0)===15?B.T:B.ac,k,k,!0,k,k,k,k,k,k,k,k),k,k,k),k,!0,k,k,k,k,k,k,k,k,k,k,new A.aFi(i),k,k,k,k,k,k,k)
-return new A.iO(q,A.a3N(A.b([i.aCU("assets/icon/usergroup.png",p.b,16,new A.aFj(r),"Manage Staff Profile")],t.p),new A.ap(32,0,0,0),B.q,B.q,h===j,o,new A.aFk(i),n),k)},
+return new A.iO(q,A.a3N(A.b([i.aCU("assets/icon/manageuser.png",p.b,16,new A.aFj(r),"Manage Staff Profile")],t.p),new A.ap(32,0,0,0),B.q,B.q,h===j,o,new A.aFk(i),n),k)},
 $S:122}
 A.aFk.prototype={
 $1(a){var s=$.c
