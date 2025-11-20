@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="Attendance Flutter Web">
+    <title>DeamHR</title>
+
+    <style>
+        .absolute { position: absolute; }
+        .inline-block { display: inline-block; }
+        .loader { display: flex; margin: 0.25em 0; justify-content:center; align-items:center; height:100vh; background:#0D47A1; }
+        .w-2 { width: 0.5em; }
+        .dash {
+          animation: dashArray 2s ease-in-out infinite,
+                     dashOffset 2s linear infinite;
+          stroke-width: 8;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          fill:none;
+        }
+        .spin {
+          animation: spinDashArray 2s ease-in-out infinite,
+                     spin 8s ease-in-out infinite,
+                     dashOffset 2s linear infinite;
+          stroke-width: 10;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          fill:none;
+          transform-origin: center;
+        }
+
+        @keyframes dashArray {
+          0% { stroke-dasharray: 0 1 359 0; }
+          50% { stroke-dasharray: 0 359 1 0; }
+          100% { stroke-dasharray: 359 1 0 0; }
+        }
+        @keyframes spinDashArray {
+          0% { stroke-dasharray: 270 90; }
+          50% { stroke-dasharray: 0 360; }
+          100% { stroke-dasharray: 270 90; }
+        }
+        @keyframes dashOffset {
+          0% { stroke-dashoffset: 365; }
+          100% { stroke-dashoffset: 5; }
+        }
+        @keyframes spin {
+          0% { rotate:0deg; }
+          12.5%,25% { rotate:270deg; }
+          37.5%,50% { rotate:540deg; }
+          62.5%,75% { rotate:810deg; }
+          87.5%,100% { rotate:1080deg; }
+        }
+    </style>
+</head>
+<div class="loader">
+    <svg height="64" width="64" class="absolute">
+        <defs>
+            <linearGradient id="b" y2="2" x2="0" y1="62" x1="0">
+                <stop stop-color="#973BED"></stop>
+                <stop stop-color="#007CFF" offset="1"></stop>
+            </linearGradient>
+            <linearGradient id="c" y2="0" x2="0" y1="64" x1="0">
+                <stop stop-color="#FFC800"></stop>
+                <stop stop-color="#F0F" offset="1"></stop>
+            </linearGradient>
+            <linearGradient id="d" y2="2" x2="0" y1="62" x1="0">
+                <stop stop-color="#00E0ED"></stop>
+                <stop stop-color="#00DA72" offset="1"></stop>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <div class="loader" style="flex-direction: column; align-items: center;">
+        <img src="favicon.png" alt="DEAM Logo"
+             style="width:100px; margin-bottom:10px;
+              animation: bounceSpin 1.5s ease-in-out infinite alternate;" />
+
+
+        <svg viewBox="0 0 320 64" width="320" height="64" class="inline-block">
+            <text x="0" y="50" font-size="48" font-weight="bold" font-family="Arial" stroke="white" class="dash">D</text>
+            <text x="80" y="50" font-size="48" font-weight="bold" font-family="Arial" stroke="white" class="dash">E</text>
+            <text x="160" y="50" font-size="48" font-weight="bold" font-family="Arial" stroke="white" class="dash">A</text>
+            <text x="240" y="50" font-size="48" font-weight="bold" font-family="Arial" stroke="white" class="dash">M</text>
+
+        </svg>
+    </div>
+
+    <style>
+        @keyframes bounceSpin {
+          0%   { transform: translateY(0) rotate(0deg); }
+          50%  { transform: translateY(-15px) rotate(180deg); }
+          100% { transform: translateY(0) rotate(360deg); }
+        }
+    </style>
+
+    <script src="flutter_bootstrap.js" async></script>
+    <script>
+        window.addEventListener('flutter-first-frame', function () {
+        const loader = document.querySelector('.loader');
+        if(loader) loader.style.display = 'none';  });
+    </script>
+</div>
+</html>
+
