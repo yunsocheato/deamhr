@@ -34391,7 +34391,7 @@ buv(){var s,r,q=null,p=$.aQ(),o=A.b6(""),n=A.aJ(!1),m=A.b6(""),l=A.b6(""),k=A.aJ
 $.I()
 s=$.U().xr
 r=t.B
-r=new A.tJ(new A.bs(B.aa,p),new A.bs(B.aa,p),o,n,m,l,k,j,i,$.y.E$.x.i(0,s),A.BC(0),A.a9(q,q,B.a6,q,q,q,q,q,"7TH.TTF",q,q,30,q,q,B.T,q,q,!0,q,q,q,q,q,A.b([new A.pn(A.by(255,0,0,0),new A.k(5,5),3),new A.pn(A.by(125,0,0,255),new A.k(10,10),8)],t.kO),q,q),A.b([],t.A),A.cc(q,q,q,t.X,t.q),new A.b7(r),new A.b7(r),!1,!1)
+r=new A.tJ(new A.bs(B.aa,p),new A.bs(B.aa,p),o,n,m,l,k,j,i,$.y.E$.x.i(0,s),A.BC(0),A.a9(q,q,B.a6,q,q,q,q,q,"7TH.ttf",q,q,30,q,q,B.T,q,q,!0,q,q,q,q,q,A.b([new A.pn(A.by(255,0,0,0),new A.k(5,5),3),new A.pn(A.by(125,0,0,255),new A.k(10,10),8)],t.kO),q,q),A.b([],t.A),A.cc(q,q,q,t.X,t.q),new A.b7(r),new A.b7(r),!1,!1)
 r.cH()
 return r},
 tJ:function tJ(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r){var _=this
