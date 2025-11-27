@@ -124773,7 +124773,7 @@ if(r==null)r=$.c=B.n
 r=r.p(0,s,A.e(this).h("z.T"))
 r.toString
 return A.es(A.kA(s,s,s,s,A.bI(s,s,s,A.bu(B.j6,B.a8,s,s),s,s,new A.axD(),s,s,s,s),s,s,B.Ut,s),s,A.cT(new A.axE(this,r)),s,s,s)},
-a2v(a){var s,r,q,p=null,o=A.w("CHANGE PASSWORD",p,p,p,p,A.a9(p,p,B.bg,p,p,p,p,p,"7TH.TTF",p,p,24,p,p,B.T,p,p,!0,p,p,p,p,p,p,p,p),p,p,p),n=A.w("Your email:\n"+a.aiI(a.ax.a.a)+"\nneed to change password",p,p,p,p,p,B.bO,p,p),m=a.ok,l=m.gj(0)
+a2v(a){var s,r,q,p=null,o=A.w("CHANGE PASSWORD",p,p,p,p,A.a9(p,p,B.bg,p,p,p,p,p,"7TH.ttf",p,p,24,p,p,B.T,p,p,!0,p,p,p,p,p,p,p,p),p,p,p),n=A.w("Your email:\n"+a.aiI(a.ax.a.a)+"\nneed to change password",p,p,p,p,p,B.bO,p,p),m=a.ok,l=m.gj(0)
 l=A.nY(p,B.cN,!1,p,!0,B.a2,p,A.pX(),a.ay,p,p,p,p,p,2,A.fv(p,B.cf,p,p,p,p,p,p,!0,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,"Old Password",!0,!0,p,p,p,p,p,p,p,p,A.bI(p,p,p,A.bu(m.gj(0)?B.nE:B.nF,p,p,p),p,p,new A.axy(a),p,p,p,p),p,p,p,p,p),B.U,!0,p,!0,p,!1,p,B.d_,p,p,p,p,p,p,p,p,1,p,p,l,"\u2022",p,p,p,p,p,!1,p,p,!1,p,!0,p,B.cL,p,p,p,p,p,p,p,p,p,p,p,B.fV,!0,B.be,p,B.e8,p,p,p,p)
 s=a.p1
 r=s.gj(0)
@@ -124886,7 +124886,7 @@ if(r==null)r=$.c=B.n
 r=r.p(0,s,A.e(this).h("z.T"))
 r.toString
 return A.es(A.kA(s,s,s,s,A.bI(s,s,s,A.bu(B.j6,B.a8,s,s),s,s,new A.aV3(),s,s,s,s),s,s,B.Ut,s),s,A.cT(new A.aV4(this,r)),s,s,s)},
-a8p(a){var s,r,q,p,o,n,m=null,l=A.w("OTP\nVERIFICATION",m,m,m,m,A.a9(m,m,B.a5,m,m,m,m,m,"7TH.TTF",m,m,25,m,m,B.T,m,m,!0,m,m,m,m,m,m,m,m),m,m,m),k=$.c
+a8p(a){var s,r,q,p,o,n,m=null,l=A.w("OTP\nVERIFICATION",m,m,m,m,A.a9(m,m,B.a5,m,m,m,m,m,"7TH.ttf",m,m,25,m,m,B.T,m,m,!0,m,m,m,m,m,m,m,m),m,m,m),k=$.c
 if(k==null)k=$.c=B.n
 s=A.e(this).h("z.T")
 k=k.p(0,m,s)
