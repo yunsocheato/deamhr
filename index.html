@@ -1,107 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <base href="/">
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <!-- Responsive viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="DeamHR – Human Resource Management">
+  <meta name="theme-color" content="#ffffff">
 
-    <meta charset="UTF-8">
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-    <meta name="description" content="Attendance Flutter Web">
-    <title>DeamHR</title>
+  <!-- Favicon (unchanged) -->
+  <link rel="icon" type="image/png" href="favicon.png">
 
-    <style>
-        .absolute { position: absolute; }
-        .inline-block { display: inline-block; }
-        .loader { display: flex; margin: 0.25em 0; justify-content:center; align-items:center; height:100vh; background:#0D47A1; }
-        .w-2 { width: 0.5em; }
-        .dash {
-          animation: dashArray 2s ease-in-out infinite,
-                     dashOffset 2s linear infinite;
-          stroke-width: 8;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          fill:none;
-        }
-        .spin {
-          animation: spinDashArray 2s ease-in-out infinite,
-                     spin 8s ease-in-out infinite,
-                     dashOffset 2s linear infinite;
-          stroke-width: 10;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          fill:none;
-          transform-origin: center;
-        }
+  <!-- Google Font for brand text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap" rel="stylesheet">
 
-        @keyframes dashArray {
-          0% { stroke-dasharray: 0 1 359 0; }
-          50% { stroke-dasharray: 0 359 1 0; }
-          100% { stroke-dasharray: 359 1 0 0; }
-        }
-        @keyframes spinDashArray {
-          0% { stroke-dasharray: 270 90; }
-          50% { stroke-dasharray: 0 360; }
-          100% { stroke-dasharray: 270 90; }
-        }
-        @keyframes dashOffset {
-          0% { stroke-dashoffset: 365; }
-          100% { stroke-dashoffset: 5; }
-        }
-        @keyframes spin {
-          0% { rotate:0deg; }
-          12.5%,25% { rotate:270deg; }
-          37.5%,50% { rotate:540deg; }
-          62.5%,75% { rotate:810deg; }
-          87.5%,100% { rotate:1080deg; }
-        }
-    </style>
+  <title>DeamHR</title>
+
+  <!-- Loader stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<div class="loader">
-    <svg height="64" width="64" class="absolute">
-        <defs>
-            <linearGradient id="b" y2="2" x2="0" y1="62" x1="0">
-                <stop stop-color="#973BED"></stop>
-                <stop stop-color="#007CFF" offset="1"></stop>
-            </linearGradient>
-            <linearGradient id="c" y2="0" x2="0" y1="64" x1="0">
-                <stop stop-color="#FFC800"></stop>
-                <stop stop-color="#F0F" offset="1"></stop>
-            </linearGradient>
-            <linearGradient id="d" y2="2" x2="0" y1="62" x1="0">
-                <stop stop-color="#00E0ED"></stop>
-                <stop stop-color="#00DA72" offset="1"></stop>
-            </linearGradient>
-        </defs>
-    </svg>
 
-    <div class="loader" style="flex-direction: column; align-items: center;">
-        <img src="favicon.png" alt="DEAM Logo"
-             style="width:100px; margin-bottom:10px;
-              animation: bounceSpin 1.5s ease-in-out infinite alternate;" />
+<body>
 
+  <!-- ══════════════════════════════════════════
+       Splash / Loader
+  ══════════════════════════════════════════ -->
+  <div id="loader" role="status" aria-label="Loading DeamHR">
 
-        <svg viewBox="0 0 320 64" width="320" height="64" class="inline-block">
-            <text x="0" y="50" font-size="48" font-weight="bold" font-family="Arial" stroke="white" class="dash">D</text>
-            <text x="80" y="50" font-size="48" font-weight="bold" font-family="Arial" stroke="white" class="dash">E</text>
-            <text x="160" y="50" font-size="48" font-weight="bold" font-family="Arial" stroke="white" class="dash">A</text>
-            <text x="240" y="50" font-size="48" font-weight="bold" font-family="Arial" stroke="white" class="dash">M</text>
+    <!-- Logo (on the left, vertically centered with Title) -->
+    <img id="loader-logo" src="favicon.png" alt="DeamHR logo">
 
-        </svg>
+    <!-- Brand text (on the right, Row 1) -->
+    <h1 class="brand-text">DEAM HR</h1>
+
+    <!-- QuarterRing spinner (on the right, Row 2 - centered under "M") -->
+    <div class="quarter-ring-wrapper" aria-hidden="true">
+      <span class="quarter-ring"></span>
     </div>
 
-    <style>
-        @keyframes bounceSpin {
-          0%   { transform: translateY(0) rotate(0deg); }
-          50%  { transform: translateY(-15px) rotate(180deg); }
-          100% { transform: translateY(0) rotate(360deg); }
+    <!-- Percentage counter (on the right, Row 3) -->
+    <span id="loader-percent">0%</span>
+
+  </div>
+  <!-- /loader -->
+
+  <!-- Inline Loader Controller (Must be inline to capture 'flutter-first-frame' immediately) -->
+  <script>
+    (function () {
+      'use strict';
+
+      var percentEl = document.getElementById('loader-percent');
+      var loaderEl  = document.getElementById('loader');
+
+      var current  = 0;
+      var targetPct = 92;
+      var interval  = null;
+
+      function tick() {
+        if (current >= targetPct) {
+          clearInterval(interval);
+          return;
         }
-    </style>
+        var remaining = targetPct - current;
+        var step = Math.max(0.4, remaining * 0.045);
+        current = Math.min(current + step, targetPct);
 
-    <script src="flutter_bootstrap.js" async></script>
-    <script>
-        window.addEventListener('flutter-first-frame', function () {
-        const loader = document.querySelector('.loader');
-        if(loader) loader.style.display = 'none';  });
-    </script>
-</div>
+        if (percentEl) {
+          percentEl.textContent = Math.floor(current) + '%';
+        }
+      }
+
+      interval = setInterval(tick, 28);
+
+      // Dismiss loader on first frame
+      window.addEventListener('flutter-first-frame', function () {
+        clearInterval(interval);
+        current = 100;
+        if (percentEl) percentEl.textContent = '100%';
+
+        setTimeout(function () {
+          if (loaderEl) loaderEl.classList.add('hidden');
+        }, 300);
+      });
+
+      // Fallback: If Flutter fails to run or load, proceed to 100% and auto-hide after 8 seconds
+      setTimeout(function () {
+        if (current < 100) {
+          clearInterval(interval);
+          var finalInterval = setInterval(function() {
+            if (current >= 100) {
+              clearInterval(finalInterval);
+              if (loaderEl) loaderEl.classList.add('hidden');
+            } else {
+              current += 2;
+              if (percentEl) percentEl.textContent = Math.min(100, Math.floor(current)) + '%';
+            }
+          }, 30);
+        }
+      }, 8000);
+
+    })();
+  </script>
+
+  <!-- Flutter bootstrap (async so it does not block the splash) -->
+  <script src="flutter_bootstrap.js" async></script>
+
+</body>
 </html>
-
